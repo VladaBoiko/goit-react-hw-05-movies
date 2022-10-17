@@ -1,3 +1,4 @@
+lines (20 sloc) 493 Bytes
 name: Build and deploy to GitHub Pages
 
 on:
@@ -15,8 +16,7 @@ jobs:
         run: |
           npm install
           npm run lint:js
-          npm run build
-
+          CI=false npm run build
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.0
         with:
