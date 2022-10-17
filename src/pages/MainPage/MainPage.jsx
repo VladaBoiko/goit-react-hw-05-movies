@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { dataMovieList } from 'API/api';
 import MainPageItem from './ListItem';
+import { List } from './MainPage.styled';
 
-export const MainPage = () => {
+export default function MainPage() {
   const [materials, setMaterials] = useState([]);
 
   useEffect(() => {
@@ -17,10 +18,10 @@ export const MainPage = () => {
     getMovies();
   }, []);
   return (
-    <ul>
+    <List>
       {materials.map(movie => {
-        return <MainPageItem name={movie.title} id={movie.id} key={movie.id} />;
+        return <MainPageItem itemData={movie} key={movie.id} />;
       })}{' '}
-    </ul>
+    </List>
   );
-};
+}

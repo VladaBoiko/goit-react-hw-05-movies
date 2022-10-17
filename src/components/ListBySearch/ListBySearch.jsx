@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { dataSearch } from 'API/api';
+import { List } from '../../pages/MainPage/MainPage.styled';
 import ListBySearchItem from './../ListBySearchItem/ListBySearchItem';
 
 export const ListBySearch = ({ query }) => {
@@ -20,13 +21,10 @@ export const ListBySearch = ({ query }) => {
     return;
   }
   return (
-    <ul>
+    <List>
       {materials.map(movie => {
-        console.log(movie);
-        return (
-          <ListBySearchItem name={movie.title} id={movie.id} key={movie.id} />
-        );
+        return <ListBySearchItem itemData={movie} key={movie.id} />;
       })}{' '}
-    </ul>
+    </List>
   );
 };

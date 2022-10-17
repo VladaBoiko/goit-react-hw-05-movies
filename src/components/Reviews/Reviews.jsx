@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { dataReviews } from 'API/api';
-
+import { List } from './Reviews.styled';
 import ReviewItem from './ReviewItem';
 
-export const Review = () => {
+export default function Review() {
   const [reviews, setReviews] = useState(null);
   const id = JSON.parse(window.localStorage.getItem('currentId'));
 
@@ -21,13 +21,12 @@ export const Review = () => {
   if (!reviews) {
     return;
   }
-  console.log(reviews);
 
   return (
-    <ul>
+    <List>
       {reviews.map(review => {
         return <ReviewItem reviewData={review} key={review.id} />;
       })}{' '}
-    </ul>
+    </List>
   );
-};
+}

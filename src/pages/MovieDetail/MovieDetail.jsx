@@ -1,9 +1,21 @@
 import { useParams, Outlet } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { dataMovie } from 'API/api';
-import { NavigationLink } from './MovieDetail.styled';
+import {
+  NavigationLink,
+  Box,
+  Wrapper,
+  Title,
+  Data,
+  Popularity,
+  Overview,
+  Nav,
+  Wrap,
+  AddTitle,
+} from './MovieDetail.styled';
 const IMG_URL = 'https://image.tmdb.org/t/p/original';
-export const MovieDetail = () => {
+let imgPath = '';
+export default function MovieDetail() {
   const [material, setMaterial] = useState({});
   const { id } = useParams();
   useEffect(() => {
@@ -30,27 +42,34 @@ export const MovieDetail = () => {
     release_date,
     overview,
   } = material;
-  const img = `${IMG_URL}${poster_path}`;
+  if (!poster_path) {
+    imgPath =
+      'https://media.istockphoto.com/vectors/cartoonish-yoga-cat-with-a-clock-and-a-lettering-phrase-please-wait-vector-id1291715830?k=20&m=1291715830&s=612x612&w=0&h=-6vPX8c2zREEaJo3cbxlDbNGAM97yiTHEWpSspmxjJc=';
+  }
+  if (poster_path) {
+    imgPath = `${IMG_URL}${poster_path}`;
+  }
+  const img = `${imgPath}`;
   return (
-    <div>
-      <>
-        {' '}
+    <>
+      {' '}
+      <Box>
         <img src={img} alt={title} width="400" />
-        <>
-          <p>{original_title}</p>
-          <p>Release date: {release_date}</p>
-          <p>{popularity}</p>
-          <p>Overview: {overview}</p>
-        </>
-      </>
-      <>
-        <p>Additional info</p>
-        <nav>
+        <Wrapper>
+          <Title>{original_title}</Title>
+          <Data>Release date: {release_date}</Data>
+          <Popularity>Popularity: {popularity}</Popularity>
+          <Overview>Overview: {overview}</Overview>
+        </Wrapper>
+      </Box>
+      <Wrap>
+        <AddTitle>Additional info</AddTitle>
+        <Nav>
           <NavigationLink to="cast">Cast</NavigationLink>
           <NavigationLink to="reviews">Reviews</NavigationLink>
-        </nav>
-        <Outlet />
-      </>
-    </div>
+        </Nav>
+      </Wrap>
+      <Outlet />
+    </>
   );
-};
+}

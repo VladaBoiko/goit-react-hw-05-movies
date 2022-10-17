@@ -4,7 +4,9 @@ export default function Header() {
   return (
     <HeaderSt>
       <nav>
-        <NavigationLink to="/">Home</NavigationLink>
+        <NavigationLink to="/" end>
+          Home
+        </NavigationLink>
         <NavigationLink to="/search">Movies</NavigationLink>
       </nav>
     </HeaderSt>

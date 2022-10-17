@@ -7,7 +7,6 @@ export default function Search() {
   const updateQuery = values => {
     setQuery(values.query);
   };
-  console.log(query);
   return (
     <>
       <SearchForm updateQuery={updateQuery} />

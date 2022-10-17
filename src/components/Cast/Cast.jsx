@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { dataAuthors } from 'API/api';
-
+import { List } from './Cast.styled';
 import CastItem from './CastItem';
 
-export const Cast = () => {
+export default function Cast() {
   const [actors, setActors] = useState(null);
   const id = JSON.parse(window.localStorage.getItem('currentId'));
 
@@ -24,10 +24,10 @@ export const Cast = () => {
   }
 
   return (
-    <ul>
+    <List>
       {actors.map(actor => {
         return <CastItem actorData={actor} key={actor.id} />;
       })}{' '}
-    </ul>
+    </List>
   );
-};
+}

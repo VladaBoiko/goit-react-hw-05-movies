@@ -1,5 +1,5 @@
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-
+import { Formik } from 'formik';
+import { ErMessage, Input, Forma, Button } from './SearchForm.styled';
 const formValues = {
   query: '',
 };
@@ -11,8 +11,8 @@ export default function SearchForm({ updateQuery }) {
   };
   return (
     <Formik initialValues={formValues} onSubmit={handleSubmit}>
-      <Form autoComplete="off">
-        <Field
+      <Forma autoComplete="off">
+        <Input
           type="text"
           name="query"
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -20,10 +20,10 @@ export default function SearchForm({ updateQuery }) {
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
         />
-        <ErrorMessage name="name" component="p" />
+        <ErMessage name="name" component="p" />
 
-        <button type="submit">SEARCH</button>
-      </Form>
+        <Button type="submit">SEARCH</Button>
+      </Forma>
     </Formik>
   );
 }

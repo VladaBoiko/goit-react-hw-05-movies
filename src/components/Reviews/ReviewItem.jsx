@@ -1,13 +1,14 @@
+import { ListItem, Accent, Span, Data, Text } from './Reviews.styled';
 export default function ReviewItem({ reviewData }) {
   const { author, content, created_at } = reviewData;
-
+  const data = new Date(created_at).toDateString();
   return (
-    <li>
-      <p>
-        Author <span>{author}</span>
-      </p>
-      <p>Data: {created_at}</p>
-      <p>{content}</p>
-    </li>
+    <ListItem>
+      <Accent>
+        Author: <Span>{author}</Span>
+      </Accent>
+      <Data>{data}</Data>
+      <Text>{content}</Text>
+    </ListItem>
   );
 }
