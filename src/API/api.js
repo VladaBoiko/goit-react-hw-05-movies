@@ -57,6 +57,7 @@ export const dataSearch = async query => {
       `3/search/movie?api_key=${KEY}&language=${language}&query=${query}&page=1&include_adult=false`
     );
     const data = await server.data;
+    console.log(data);
     return data;
   } catch (error) {
     console.error(error);

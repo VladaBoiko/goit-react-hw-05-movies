@@ -18,6 +18,7 @@ export const Cast = () => {
     }
     getActors();
   }, [id]);
+
   if (!actors) {
     return;
   }
