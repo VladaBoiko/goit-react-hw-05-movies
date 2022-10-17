@@ -19,6 +19,9 @@ export const MovieDetail = () => {
     }
     getMovie();
   }, [id]);
+  if (!material) {
+    return;
+  }
   const {
     title,
     poster_path,
