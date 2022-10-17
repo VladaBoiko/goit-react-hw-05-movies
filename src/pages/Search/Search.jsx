@@ -1,6 +1,5 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { useState, useEffect } from 'react';
-// let searchQuery = null;
+import { useState } from 'react';
 
 const formValues = {
   query: '',
