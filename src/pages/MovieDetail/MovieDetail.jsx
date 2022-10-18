@@ -19,6 +19,7 @@ let imgPath = '';
 export default function MovieDetail() {
   const [material, setMaterial] = useState({});
   const { id } = useParams();
+  const query = JSON.parse(window.localStorage.getItem('currentQuery'));
   const location = useLocation();
   console.log(location.state);
   const backLinkHref = location.state?.from ?? '/';
@@ -70,8 +71,15 @@ export default function MovieDetail() {
       <Wrap>
         <AddTitle>Additional info</AddTitle>
         <Nav>
-          <NavigationLink to="cast">Cast</NavigationLink>
-          <NavigationLink to="reviews">Reviews</NavigationLink>
+          <NavigationLink to="cast" state={{ from: `/search?query=${query}` }}>
+            Cast
+          </NavigationLink>
+          <NavigationLink
+            to="reviews"
+            state={{ from: `/search?query=${query}` }}
+          >
+            Reviews
+          </NavigationLink>
         </Nav>
       </Wrap>
       <Outlet />

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState } from 'react';
 import SearchForm from '../../components/SearchForm/SearchForm';
 import { useSearchParams } from 'react-router-dom';
@@ -9,13 +10,15 @@ export default function Search() {
   const [searchParams, setSearchParams] = useSearchParams();
   const searchQuery = searchParams.get('query') ?? '';
   const updateQuery = values => {
-    setQuery(values.query);
+    setQuery(values);
+    localStorage.setItem('currentQuery', JSON.stringify(values));
     // console.log('hello');
   };
   const updateQueryString = query => {
     const nextParams = query !== '' ? { query } : {};
     setSearchParams(nextParams);
   };
+
   return (
     <>
       <SearchForm
