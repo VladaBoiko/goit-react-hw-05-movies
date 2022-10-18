@@ -5,6 +5,7 @@ import { Layout } from './Layout';
 const MainPage = lazy(() => import('../pages/MainPage/MainPage'));
 const Search = lazy(() => import('../pages/Search/Search'));
 const MovieDetail = lazy(() => import('../pages/MovieDetail/MovieDetail'));
+const MovieDetailSearch = lazy(() => import('../pages/MovieDetailSearch/MovieDetail'));
 const Cast = lazy(() => import('./Cast/Cast'));
 const Review = lazy(() => import('./Reviews/Reviews'));
 export const App = () => {
@@ -16,7 +17,7 @@ export const App = () => {
           <Route path="search" element={<Search />}>
             <Route path="search/:query" element={<Search />} />
           </Route>
-          <Route path="search/:id" element={<MovieDetail />}>
+          <Route path="search/:id" element={<MovieDetailSearch />}>
             <Route path="cast" element={<Cast />} />
             <Route path="reviews" element={<Review />} />
           </Route>

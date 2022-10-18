@@ -16,10 +16,10 @@ import {
 } from './MovieDetail.styled';
 const IMG_URL = 'https://image.tmdb.org/t/p/original';
 let imgPath = '';
-export default function MovieDetailSearch() {
+export default function MovieDetail() {
   const [material, setMaterial] = useState({});
   const { id } = useParams();
-  // const query = JSON.parse(window.localStorage.getItem('currentQuery'));
+  const query = JSON.parse(window.localStorage.getItem('currentQuery'));
   const location = useLocation();
   console.log(location.state);
   const backLinkHref = location.state?.from ?? '/';
@@ -71,10 +71,13 @@ export default function MovieDetailSearch() {
       <Wrap>
         <AddTitle>Additional info</AddTitle>
         <Nav>
-          <NavigationLink to="cast" state={{ from: `/` }}>
+          <NavigationLink to="cast" state={{ from: `/search?query=${query}` }}>
             Cast
           </NavigationLink>
-          <NavigationLink to="reviews" state={{ from: `/` }}>
+          <NavigationLink
+            to="reviews"
+            state={{ from: `/search?query=${query}` }}
+          >
             Reviews
           </NavigationLink>
         </Nav>
