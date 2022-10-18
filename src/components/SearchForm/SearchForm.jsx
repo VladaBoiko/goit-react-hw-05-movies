@@ -6,8 +6,8 @@ const formValues = {
 
 export default function SearchForm({ updateQuery, updateQueryString }) {
   const handleSubmit = (values, { resetForm }) => {
-    updateQueryString(values.query);
-    updateQuery(values.query);
+    updateQueryString(values.query.toLowerCase());
+    updateQuery(values.query.toLowerCase());
 
     resetForm();
   };
