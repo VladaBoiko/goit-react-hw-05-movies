@@ -23,7 +23,9 @@ export const ListBySearch = ({ query }) => {
   return (
     <List>
       {materials.map(movie => {
-        return <ListBySearchItem itemData={movie} key={movie.id} />;
+        return (
+          <ListBySearchItem itemData={movie} query={query} key={movie.id} />
+        );
       })}{' '}
     </List>
   );

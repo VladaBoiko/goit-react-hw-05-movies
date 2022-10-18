@@ -63,3 +63,23 @@ export const AddTitle = styled.h2`
   font-size: 20px;
   color: #034986;
 `;
+export const GoBackLink = styled(NavLink)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px 20px;
+  font-size: 25px;
+  color: black;
+  border: 1px solid black;
+  margin-top: 20px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  max-width: 150px;
+  text-decoration: none;
+  &:hover,
+  &:focus {
+    transform: scale(1.05);
+  }
+`;

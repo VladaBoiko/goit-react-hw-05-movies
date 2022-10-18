@@ -1,4 +1,4 @@
-import { useParams, Outlet } from 'react-router-dom';
+import { useParams, Outlet, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { dataMovie } from 'API/api';
 import {
@@ -12,12 +12,16 @@ import {
   Nav,
   Wrap,
   AddTitle,
+  GoBackLink,
 } from './MovieDetail.styled';
 const IMG_URL = 'https://image.tmdb.org/t/p/original';
 let imgPath = '';
 export default function MovieDetail() {
   const [material, setMaterial] = useState({});
   const { id } = useParams();
+  const location = useLocation();
+  console.log(location.state);
+  const backLinkHref = location.state?.from ?? '/';
   useEffect(() => {
     localStorage.setItem('currentId', JSON.stringify(id));
 
@@ -53,6 +57,7 @@ export default function MovieDetail() {
   return (
     <>
       {' '}
+      <GoBackLink to={backLinkHref}>Go back</GoBackLink>
       <Box>
         <img src={img} alt={title} width="400" />
         <Wrapper>

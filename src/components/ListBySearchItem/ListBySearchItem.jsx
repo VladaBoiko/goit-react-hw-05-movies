@@ -6,7 +6,7 @@ import {
 } from '../../pages/MainPage/MainPage.styled';
 const IMG_URL = 'https://image.tmdb.org/t/p/original';
 let imgPath = '';
-export default function ListBySearchItem({ itemData }) {
+export default function ListBySearchItem({ itemData, query }) {
   const { id, original_title, release_date, poster_path } = itemData;
 
   if (!poster_path) {
@@ -19,7 +19,7 @@ export default function ListBySearchItem({ itemData }) {
   const img = `${imgPath}`;
   return (
     <Item>
-      <NavigationLink to={`${id}`}>
+      <NavigationLink to={`${id}`} state={{ from: `/search?query=${query}` }}>
         <img src={img} alt={original_title} width="380" height="569.7" />
         <Info>
           <Accent>{original_title}</Accent>

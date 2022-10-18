@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { dataMovieList } from 'API/api';
 import MainPageItem from './ListItem';
+// import { NavigationLink } from '../../components/Header/Header.styled';
 import { List } from './MainPage.styled';
 
 export default function MainPage() {

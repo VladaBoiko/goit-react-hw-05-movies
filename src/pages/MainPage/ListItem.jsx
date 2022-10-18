@@ -15,7 +15,7 @@ export default function MainPageItem({ itemData }) {
   const img = `${imgPath}`;
   return (
     <Item>
-      <NavigationLink to={`${id}`}>
+      <NavigationLink to={`${id}`} state={{ from: '/' }}>
         <img src={img} alt={original_title} width="380" />
         <Info>
           <Accent>{original_title}</Accent>
@@ -25,3 +25,4 @@ export default function MainPageItem({ itemData }) {
     </Item>
   );
 }
+//

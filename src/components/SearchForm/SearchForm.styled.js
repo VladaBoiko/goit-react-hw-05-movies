@@ -32,6 +32,7 @@ export const Forma = styled(Form)`
   text-align: center;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 20px;
 `;
 export const Button = styled.button`
   display: flex;
